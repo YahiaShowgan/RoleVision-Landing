@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - RoleVision</title>
+    <link rel="stylesheet" href="policy-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy for RoleVision</h1>
+        <p class="meta">Effective Date: January 2025 | Last Updated: January 2025</p>
+        
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <iframe src="privacy-policy.md" style="display:none;"></iframe>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        // Simple markdown-to-HTML converter for GitHub Pages
+        fetch('privacy-policy.md')
+            .then(response => response.text())
+            .then(text => {
+                const content = document.getElementById('content');
+                content.innerHTML = text
+                    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+                    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+                    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+                    .replace(/^- (.+)$/gm, '<li>$1</li>')
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/^(?!<[h|l|p])/gm, '<p>')
+                    .replace(/<p><\/p>/g, '');
+            });
+    </script>
+</body>
+</html>

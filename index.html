@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoleVision - Smart Job Analysis for LinkedIn</title>
+    <meta name="description" content="AI-powered Chrome extension that analyzes LinkedIn jobs against your resume. Find your perfect match faster.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .features {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .pricing {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .plan {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .plan.pro {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea05 0%, #764ba205 100%);
+        }
+
+        .plan-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .plan-price {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        footer a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 36px;
+            }
+
+            .tagline {
+                font-size: 16px;
+            }
+
+            .features, .pricing {
+                padding: 40px 20px;
+            }
+
+            .features h2, .pricing h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎯 RoleVision</div>
+            <div class="tagline">Smart Job Analysis for LinkedIn - Your AI-Powered Career Assistant</div>
+            <a href="#download" class="cta-button">Download for Chrome</a>
+        </header>
+
+        <div class="features">
+            <h2>✨ Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Smart Job Scoring</h3>
+                    <p>Get instant relevance scores (0-100) for job titles and detailed AI analysis of job descriptions vs your resume.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💎</div>
+                    <h3>Match Analysis</h3>
+                    <p>See which skills align, understand experience gaps, and discover your competitive advantages.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Smart Filtering</h3>
+                    <p>Hide applied jobs, block companies, filter by keywords, and highlight matching skills inline.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics & Tracking</h3>
+                    <p>Track applied jobs, review analysis history, and export your data for offline review.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing">
+            <h2>💰 Pricing</h2>
+            <div class="plan-grid">
+                <div class="plan">
+                    <div class="plan-name">Free</div>
+                    <div class="plan-price">$0/month</div>
+                    <ul class="plan-features">
+                        <li>2 Title Scores/day</li>
+                        <li>3 Deep Analyses/month</li>
+                        <li>All core features</li>
+                        <li>Applied jobs tracking</li>
+                        <li>Smart filtering</li>
+                    </ul>
+                </div>
+                <div class="plan pro">
+                    <div class="plan-name">PRO</div>
+                    <div class="plan-price">Contact for pricing</div>
+                    <ul class="plan-features">
+                        <li>✨ Unlimited Title Scores</li>
+                        <li>✨ Unlimited Deep Analyses</li>
+                        <li>All core features</li>
+                        <li>Priority support</li>
+                        <li>Early feature access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="https://github.com/yourusername/RoleVision-Landing">GitHub</a>
+            </div>
+            <div class="disclaimer">
+                RoleVision is an independent tool and is not affiliated with, endorsed by, or sponsored by LinkedIn Corporation.<br>
+                LinkedIn is a trademark of LinkedIn Corporation.
+            </div>
+            <div style="margin-top: 20px; font-size: 14px;">
+                © 2025 RoleVision. All rights reserved.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
