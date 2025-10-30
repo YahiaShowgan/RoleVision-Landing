@@ -173,7 +173,7 @@ You agree to indemnify and hold us harmless from any claims, damages, losses, li
 ## 13. Dispute Resolution
 
 ### 13.1 Governing Law
-These Terms are governed by the laws of [Your Jurisdiction], without regard to conflict of law principles.
+These Terms are governed by the laws of Israel, without regard to conflict of law principles.
 
 ### 13.2 Arbitration
 Any disputes arising from these Terms or your use of the Service shall be resolved through binding arbitration, except where prohibited by law.
@@ -202,8 +202,8 @@ Nothing in these Terms creates a partnership, joint venture, or agency relations
 
 If you have questions about these Terms, please contact us:
 
-**Email**: [your-email@example.com]
-**GitHub**: [https://github.com/yourusername/RoleVision-Landing](https://github.com/yourusername/RoleVision-Landing)
+**Email**: RoleVisionExt@gmail.com
+**GitHub**: [https://github.com/YahiaShowgan/RoleVision-Landing](https://github.com/YahiaShowgan/RoleVision-Landing)
 
 ---
 

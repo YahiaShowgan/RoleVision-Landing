@@ -64,7 +64,7 @@ Read our full [Privacy Policy](./privacy-policy.md) and [Terms of Service](./ter
 ## 🆘 Support
 
 Need help? Have questions?
-- 📧 Email: [your-email@example.com]
+- 📧 Email: RoleVisionExt@gmail.com
 - 💬 GitHub Issues: [Report an issue](../../issues)
 
 ## 📝 License
