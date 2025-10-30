@@ -45,9 +45,16 @@ For detailed instructions, see [INSTALLATION_GUIDE.md](./INSTALLATION_GUIDE.md)
 - **3 Deep Analyses** per month
 - All core features included
 
-### PRO Plan
+### Premium Plan
+- **Unlimited Title Scores**
+- **200 Deep Analyses** per month
+- All core features included
+- Email support
+
+### Pro Plan
 - **Unlimited Title Scores**
 - **Unlimited Deep Analyses**
+- All core features included
 - Priority support
 - Early access to new features
 

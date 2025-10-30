@@ -1,7 +1,7 @@
 # Privacy Policy for RoleVision
 
-**Effective Date**: January 2025
-**Last Updated**: January 2025
+**Effective Date**: November 2025
+**Last Updated**: November 2025
 
 ## Introduction
 

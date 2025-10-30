@@ -123,7 +123,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -140,9 +140,14 @@
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
         }
 
+        .plan.premium {
+            border-color: #0a66c2;
+            background: linear-gradient(135deg, #0a66c205 0%, #0a66c210 100%);
+        }
+
         .plan.pro {
-            border-color: #667eea;
-            background: linear-gradient(135deg, #667eea05 0%, #764ba205 100%);
+            border-color: #10b981;
+            background: linear-gradient(135deg, #10b98105 0%, #10b98110 100%);
         }
 
         .plan-name {
@@ -264,8 +269,19 @@
                         <li>Smart filtering</li>
                     </ul>
                 </div>
+                <div class="plan premium">
+                    <div class="plan-name">Premium</div>
+                    <div class="plan-price">Contact for pricing</div>
+                    <ul class="plan-features">
+                        <li>✨ Unlimited Title Scores</li>
+                        <li>📊 200 Deep Analyses/month</li>
+                        <li>All core features</li>
+                        <li>Email support</li>
+                        <li>Perfect for active job seekers</li>
+                    </ul>
+                </div>
                 <div class="plan pro">
-                    <div class="plan-name">PRO</div>
+                    <div class="plan-name">Pro</div>
                     <div class="plan-price">Contact for pricing</div>
                     <ul class="plan-features">
                         <li>✨ Unlimited Title Scores</li>

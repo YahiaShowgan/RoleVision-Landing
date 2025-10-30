@@ -1,7 +1,7 @@
 # Terms of Service for RoleVision
 
-**Effective Date**: January 2025
-**Last Updated**: January 2025
+**Effective Date**: November 2025
+**Last Updated**: November 2025
 
 ## 1. Acceptance of Terms
 
@@ -25,18 +25,27 @@ We grant you a limited, non-exclusive, non-transferable, revocable license to us
 - 3 deep analyses per month
 - All core features included
 
-### 3.3 PRO Plan
+### 3.3 Premium Plan
+- Unlimited title scores
+- 200 deep analyses per month
+- All core features included
+- Email support
+- Requires valid license key
+
+### 3.4 Pro Plan
 - Unlimited title scores
 - Unlimited deep analyses
+- All core features included
+- Priority support
 - Early access to new features
 - Requires valid license key
 
-### 3.4 License Restrictions
+### 3.5 License Restrictions
 You may not:
 - Resell, redistribute, or sublicense the Extension
 - Reverse engineer, decompile, or disassemble the Extension
 - Use the Extension for any illegal or unauthorized purpose
-- Share your PRO license key with others
+- Share your license key with others
 - Circumvent usage limits or quota restrictions
 - Use automated tools or bots with the Extension
 
@@ -61,7 +70,7 @@ You must not:
 - Attempt to gain unauthorized access to our systems
 - Use the Extension in a way that could damage, disable, or impair the Service
 
-## 5. Payment and Billing (PRO Plan)
+## 5. Payment and Billing (Paid Plans)
 
 ### 5.1 License Fees
 - PRO plan licenses require payment of applicable fees
