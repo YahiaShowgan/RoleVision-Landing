@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoleVision - Smart Job Analysis for LinkedIn</title>
-    <meta name="description" content="AI-powered Chrome extension that analyzes LinkedIn jobs against your resume. Find your perfect match faster.">
+    <title>RoleVision - AI Job Search Copilot for LinkedIn</title>
+    <meta name="description" content="Stop wasting time on irrelevant jobs. RoleVision uses AI to score job matches against your resume instantly - right on LinkedIn. Free Chrome extension.">
     <style>
         * {
             margin: 0;
@@ -26,6 +26,7 @@
             padding: 20px;
         }
 
+        /* Hero Section */
         header {
             text-align: center;
             padding: 60px 20px 40px;
@@ -38,23 +39,48 @@
             margin-bottom: 10px;
         }
 
-        .tagline {
-            font-size: 20px;
-            opacity: 0.9;
+        .hero-headline {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-subheadline {
+            font-size: 22px;
+            opacity: 0.95;
             margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
         }
 
         .cta-button {
             display: inline-block;
             background: white;
             color: #667eea;
-            padding: 15px 40px;
+            padding: 18px 45px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 18px;
             transition: transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px;
         }
 
         .cta-button:hover {
@@ -62,6 +88,215 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .problem-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .problem-item .emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .problem-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #e53e3e;
+        }
+
+        .solution-highlight {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .solution-highlight h3 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .solution-highlight p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Screenshots */
+        .screenshots {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .screenshots h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .screenshots p {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .screenshot-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.02);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+
+        /* Image Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+        }
+
+        /* Features Section */
         .features {
             background: white;
             border-radius: 20px;
@@ -77,33 +312,150 @@
             color: #333;
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+        .feature-category {
+            margin-bottom: 50px;
         }
 
-        .feature {
+        .feature-category h3 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 30px;
             text-align: center;
         }
 
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .feature h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #667eea;
+        .feature {
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .feature h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #333;
         }
 
         .feature p {
             color: #666;
-            line-height: 1.8;
+            font-size: 15px;
+            line-height: 1.6;
         }
 
+        /* Early Access Section */
+        .early-access {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+        }
+
+        .early-access h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .early-access p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .early-access ul {
+            list-style: none;
+            max-width: 600px;
+            margin: 30px auto;
+            text-align: left;
+        }
+
+        .early-access li {
+            padding: 12px 0;
+            font-size: 17px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .early-access li:last-child {
+            border-bottom: none;
+        }
+
+        /* Email Capture */
+        .email-capture {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .email-capture h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .email-capture p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .email-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .email-form input:focus {
+            border-color: #667eea;
+        }
+
+        .email-form button {
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .email-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        .privacy-note {
+            font-size: 13px;
+            color: #999;
+            margin-top: 15px;
+        }
+
+        /* Pricing */
         .pricing {
             background: white;
             border-radius: 20px;
@@ -158,9 +510,16 @@
         }
 
         .plan-price {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .plan-billing {
+            font-size: 14px;
             color: #666;
+            margin-bottom: 20px;
         }
 
         .plan-features {
@@ -169,7 +528,7 @@
         }
 
         .plan-features li {
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #f0f0f0;
         }
 
@@ -177,6 +536,56 @@
             border-bottom: none;
         }
 
+        .coming-soon {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #fef3c7;
+            border-radius: 10px;
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -202,111 +611,409 @@
             margin-top: 20px;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .logo {
                 font-size: 36px;
             }
 
-            .tagline {
-                font-size: 16px;
+            .hero-headline {
+                font-size: 32px;
             }
 
-            .features, .pricing {
+            .hero-subheadline {
+                font-size: 18px;
+            }
+
+            .features, .pricing, .how-it-works, .screenshots, .faq {
                 padding: 40px 20px;
             }
 
-            .features h2, .pricing h2 {
+            .features h2, .pricing h2, .how-it-works h2, .screenshots h2, .faq h2 {
                 font-size: 28px;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-form input {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Hero Section -->
         <header>
             <div class="logo">🎯 RoleVision</div>
-            <div class="tagline">Smart Job Analysis for LinkedIn - Your AI-Powered Career Assistant</div>
-            <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" class="cta-button">Download for Chrome</a>
+            <h1 class="hero-headline">Stop Wasting Time on<br>Irrelevant Job Postings</h1>
+            <p class="hero-subheadline">AI-powered job matching that shows you exactly which LinkedIn jobs fit your resume—before you click.</p>
+            
+            <div class="trust-badges">
+                <div class="badge">✅ Free Chrome Extension</div>
+                <div class="badge">🔒 Privacy-First</div>
+                <div class="badge">⚡ No Credit Card</div>
+                <div class="badge">⚡ Instant Setup</div>
+            </div>
+
+            <div>
+                <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" class="cta-button">Add to Chrome - It's Free</a>
+            </div>
         </header>
 
-        <div class="features">
-            <h2>✨ Features</h2>
-            <div class="feature-grid">
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Smart Job Scoring</h3>
-                    <p>Get instant relevance scores (0-100) for job titles and detailed AI analysis of job descriptions vs your resume.</p>
+        <!-- Problem Section -->
+        <div class="problem-section">
+            <h2>Sound Familiar?</h2>
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <div class="emoji">😫</div>
+                    <h3>Wasted Hours</h3>
+                    <p>Spent 3 hours reading 50 job descriptions only to realize 45 of them weren't even relevant to your skills.</p>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">💎</div>
-                    <h3>Match Analysis</h3>
-                    <p>See which skills align, understand experience gaps, and discover your competitive advantages.</p>
+                <div class="problem-item">
+                    <div class="emoji">🤷</div>
+                    <h3>Guessing Game</h3>
+                    <p>Clicked on "Software Engineer" only to find it requires 10 years of experience you don't have.</p>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Smart Filtering</h3>
-                    <p>Hide applied jobs, block companies, filter by keywords, and highlight matching skills inline.</p>
+                <div class="problem-item">
+                    <div class="emoji">🔄</div>
+                    <h3>Lost Track</h3>
+                    <p>Applied to the same company twice because you forgot you already submitted an application last week.</p>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>Analytics & Tracking</h3>
-                    <p>Track applied jobs, review analysis history, and export your data for offline review.</p>
+            </div>
+
+            <div class="solution-highlight">
+                <h3>RoleVision Solves This</h3>
+                <p><strong>AI scores job titles</strong> (by title, company, location) as you browse → <strong>Hide irrelevant companies & keywords</strong> → <strong>Sort by best matches</strong> → Open interesting jobs → <strong>Deep analysis vs your resume</strong></p>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="how-it-works">
+            <h2>🚀 How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Install & Upload Resume</h3>
+                    <p>Add RoleVision to Chrome and upload your resume once. It stays on your device.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Browse LinkedIn Jobs</h3>
+                    <p>AI instantly scores job titles (0-100) by title, company, and location as you scroll.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Filter & Sort</h3>
+                    <p>Hide irrelevant companies and keywords. Sort jobs by best match score.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Deep Analysis</h3>
+                    <p>Open a job posting and click "Analyze vs Resume" for detailed breakdown.</p>
                 </div>
             </div>
         </div>
 
+        <!-- Screenshots -->
+        <div class="screenshots">
+            <h2>📸 See It In Action</h2>
+            <p>Real screenshots of RoleVision working on LinkedIn (click to enlarge)</p>
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <img src="Screenshots/1.png" alt="RoleVision showing job scores on LinkedIn" onclick="openModal(this)">
+                </div>
+                <div class="screenshot-item">
+                    <img src="Screenshots/2.png" alt="Detailed AI analysis of job match" onclick="openModal(this)">
+                </div>
+                <div class="screenshot-item">
+                    <img src="Screenshots/3.png" alt="Resume manager interface" onclick="openModal(this)">
+                </div>
+                <div class="screenshot-item">
+                    <img src="Screenshots/4.png" alt="Application tracking dashboard" onclick="openModal(this)">
+                </div>
+                <div class="screenshot-item">
+                    <img src="Screenshots/5.png" alt="Smart filtering options" onclick="openModal(this)">
+                </div>
+                <div class="screenshot-item">
+                    <img src="Screenshots/6.png" alt="Quota and settings panel" onclick="openModal(this)">
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <h2>✨ Complete Feature Set</h2>
+
+            <div class="feature-category">
+                <h3>🎯 AI-Powered Matching</h3>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Instant Title Scoring (0-100)</h4>
+                        <p>AI scores job titles by analyzing title, company, and location against your resume. See scores as you scroll through listings.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Sort by Best Match</h4>
+                        <p>Sort LinkedIn job listings by your match score to see the most relevant opportunities first.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Deep Job Analysis</h4>
+                        <p>Open a job posting and click "Analyze vs Resume" for full AI breakdown: match score, aligned skills, gaps, advantages, and fit reasons.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Smart Caching</h4>
+                        <p>Never analyze the same job twice. All scores and analyses are cached and tied to your resume version.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-category">
+                <h3>🎨 Smart Filtering & Hiding</h3>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Block Irrelevant Companies</h4>
+                        <p>Hide jobs from specific companies you're not interested in. Supports partial matching. Clean up your feed instantly.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Block by Keyword</h4>
+                        <p>Hide jobs with specific title keywords (e.g., "Senior", "Manager", "Java"). Filter out irrelevant roles automatically.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Hide Applied Jobs</h4>
+                        <p>Automatically hide jobs you've already applied to. Never see duplicate postings.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Manual Hide & Unhide</h4>
+                        <p>Manually hide individual jobs. View and manage all hidden listings in one dashboard.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-category">
+                <h3>📊 Tracking & History</h3>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Applied Jobs Tracker</h4>
+                        <p>Automatically tracks where you've applied. View full history with dates, companies, and titles.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Analysis History</h4>
+                        <p>Review all past AI analyses without re-analyzing. Export data for offline tracking.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Data Export</h4>
+                        <p>Export your applied jobs and analyzed positions for spreadsheet tracking.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Resume Management</h4>
+                        <p>Upload and manage your resume. Automatic cache clearing when you update it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-category">
+                <h3>🔒 Privacy & Control</h3>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Local Storage Only</h4>
+                        <p>Your resume stays on your device. Only sent to AI during analysis (encrypted HTTPS).</p>
+                    </div>
+                    <div class="feature">
+                        <h4>No Tracking</h4>
+                        <p>We don't track your job search activity or collect analytics. Your data is yours.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Secure & Private</h4>
+                        <p>All communications encrypted via HTTPS. Your resume and job search activity remain completely private.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Quota Dashboard</h4>
+                        <p>Live quota widget shows usage, resets, and plan limits. Always know where you stand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Early Access -->
+        <div class="early-access">
+            <h2>🚀 Early Stage - Help Us Improve</h2>
+            <p><strong>RoleVision just launched</strong>, and we're actively building based on user feedback.</p>
+            <p>As an early adopter, you'll get:</p>
+            <ul>
+                <li>✅ Direct input on new features we build</li>
+                <li>🎁 Early access to premium features before public release</li>
+                <li>💬 Invitation to our feedback community</li>
+                <li>🌟 Chance to shape the product roadmap</li>
+                <li>📣 Recognition as a founding user (if you want it!)</li>
+            </ul>
+            <p style="margin-top: 30px;"><strong>Bismillah—let's build something amazing together.</strong></p>
+            <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" class="cta-button" style="background: white; color: #667eea; margin-top: 20px;">Join as Early Adopter</a>
+        </div>
+
+        <!-- Email Capture -->
+        <div class="email-capture">
+            <h2>📬 Get Product Updates</h2>
+            <p>Be the first to know about new features, premium launch, and job search tips.</p>
+            <form class="email-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="email" name="email" placeholder="your.email@example.com" required>
+                <button type="submit">Notify Me</button>
+            </form>
+            <p class="privacy-note">We'll never spam you or share your email. Unsubscribe anytime.</p>
+        </div>
+
+        <!-- Pricing -->
         <div class="pricing">
-            <h2>💰 Pricing</h2>
+            <h2>💰 Simple, Transparent Pricing</h2>
             <div class="plan-grid">
                 <div class="plan">
-                    <div class="plan-name">📋 Free Plan</div>
+                    <div class="plan-name">📋 Free</div>
                     <div class="plan-price">$0</div>
+                    <div class="plan-billing">Forever free</div>
                     <ul class="plan-features">
-                        <li>2 title scores/day</li>
-                        <li>3 analyses/month</li>
-                        <li>All essentials</li>
+                        <li>2 title scores per day</li>
+                        <li>3 deep analyses per month</li>
+                        <li>All core features included</li>
+                        <li>Application tracking</li>
+                        <li>Smart filtering</li>
+                        <li>No credit card required</li>
                     </ul>
                 </div>
                 <div class="plan premium">
-                    <div class="plan-name">💎 Premium Plan</div>
-                    <div class="plan-price">$11.99 / month</div>
-                    <div style="color: #0a66c2; font-weight: 600; margin-bottom: 15px;">Recurring</div>
+                    <div class="plan-name">💎 Premium</div>
+                    <div class="plan-price">$11.99</div>
+                    <div class="plan-billing">per month, recurring</div>
                     <ul class="plan-features">
-                        <li>Unlimited title scores</li>
+                        <li><strong>Unlimited title scores</strong></li>
                         <li>200 deep analyses/month</li>
+                        <li>All core features</li>
                         <li>Email support</li>
+                        <li>Perfect for active job seekers</li>
                     </ul>
                 </div>
                 <div class="plan pro">
-                    <div class="plan-name">⭐ Pro Plan</div>
-                    <div class="plan-price">$19.99 / month</div>
-                    <div style="color: #10b981; font-weight: 600; margin-bottom: 15px;">Recurring</div>
+                    <div class="plan-name">⭐ Pro</div>
+                    <div class="plan-price">$19.99</div>
+                    <div class="plan-billing">per month, recurring</div>
                     <ul class="plan-features">
-                        <li>Unlimited title scores & analyses</li>
+                        <li><strong>Unlimited everything</strong></li>
+                        <li>Unlimited title scores</li>
+                        <li>Unlimited deep analyses</li>
                         <li>Priority support</li>
-                        <li>Early access</li>
+                        <li>Early access to features</li>
+                        <li>Best for serious job hunters</li>
                     </ul>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 30px; color: #666; font-style: italic;">
-                Links to purchase plans will be added soon
+            <div class="coming-soon">
+                💳 Payment links coming soon! Currently, all users enjoy free access while we finalize billing.
             </div>
         </div>
 
+        <!-- FAQ -->
+        <div class="faq">
+            <h2>❓ Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is my resume data safe?</div>
+                <div class="faq-answer">
+                    Yes. Your resume is stored locally in your browser only. It's never uploaded to our servers. When you request an AI analysis, your resume is sent encrypted (HTTPS) directly to OpenAI's API for processing, then the result comes back. We never see, store, or share your resume.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Does this violate LinkedIn's Terms of Service?</div>
+                <div class="faq-answer">
+                    RoleVision is designed for personal, non-commercial use only. It enhances your browsing experience by adding AI insights—similar to ad blockers or password managers. We don't scrape data, automate applications, or redistribute LinkedIn content. However, users are responsible for complying with LinkedIn's ToS.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How accurate is the AI matching?</div>
+                <div class="faq-answer">
+                    RoleVision uses OpenAI's GPT-4 models for analysis. While highly accurate, AI can make mistakes. Use scores and analyses as guidance, not absolute truth. Always review jobs yourself before applying.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why is there a free tier limit?</div>
+                <div class="faq-answer">
+                    Each AI analysis costs money (OpenAI API fees). The free tier covers casual job searching while keeping the service sustainable. Active job seekers can upgrade for unlimited access.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use this on mobile?</div>
+                <div class="faq-answer">
+                    Currently, RoleVision is a Chrome desktop extension only. Mobile browser extensions have limited capabilities. We're exploring mobile options for the future.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you track my job search activity?</div>
+                <div class="faq-answer">
+                    No. We don't use analytics, tracking pixels, or collect data about which jobs you view. Your job search is completely private. The only data we see is license validation (if you purchase a paid plan).
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What happens to my data if I uninstall?</div>
+                <div class="faq-answer">
+                    All your data (resume, cached scores, application history) is stored locally in your browser. When you uninstall the extension, all this data is automatically removed from your device. We don't keep any copies.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I get support?</div>
+                <div class="faq-answer">
+                    Email us at <strong>RoleVisionExt@gmail.com</strong>. Free users get community support (we'll respond within 48-72 hours). Premium/Pro users get priority email support.
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
         <footer>
             <div>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="terms-of-service.html">Terms of Service</a>
-                <a href="https://github.com/YahiaShowgan/RoleVision-Landing">GitHub</a>
+                <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank">Chrome Web Store</a>
             </div>
             <div class="disclaimer">
                 RoleVision is an independent tool and is not affiliated with, endorsed by, or sponsored by LinkedIn Corporation.<br>
                 LinkedIn is a trademark of LinkedIn Corporation.
             </div>
             <div style="margin-top: 20px; font-size: 14px;">
-                © 2025 RoleVision. All rights reserved.
+                © 2025 RoleVision. All rights reserved. | Contact: RoleVisionExt@gmail.com
             </div>
         </footer>
     </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(img) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
