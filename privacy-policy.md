@@ -71,8 +71,9 @@ We use the collected information solely to:
 **OpenAI API**
 - Job descriptions and resume text are sent to OpenAI's API for AI-powered analysis
 - This data is transmitted over secure HTTPS connections
-- OpenAI processes this data according to their [Data Usage Policy](https://openai.com/policies/usage-policies)
+- OpenAI may retain API requests temporarily (up to 30 days) for abuse monitoring
 - OpenAI does not use data from API customers to train their models
+- See OpenAI's [Data Usage Policy](https://openai.com/policies/usage-policies) for details
 
 **License Validation Service**
 - License keys are validated through a secure Cloudflare Worker
@@ -82,7 +83,8 @@ We use the collected information solely to:
 ## Data Retention
 
 - **Local Data**: Stored indefinitely in your browser until you clear it or uninstall the extension
-- **Analysis Requests**: Not stored by us; processed in real-time
+- **Analysis Requests**: Not stored permanently by us; processed in real-time
+- **OpenAI Retention**: OpenAI may retain API requests temporarily (up to 30 days) per their abuse monitoring policy
 - **License Information**: Retained for the duration of your subscription plus 1 year for accounting purposes
 
 ## Your Rights and Choices
