@@ -136,7 +136,8 @@ If you have questions about this Privacy Policy or our privacy practices, please
 
 This extension uses third-party services. Please review their privacy policies:
 - **OpenAI**: https://openai.com/policies/privacy-policy
-- **LinkedIn**: https://www.linkedin.com/legal/privacy-policy (we scrape publicly visible job data only)
+- **LinkedIn**: https://www.linkedin.com/legal/privacy-policy (we access publicly visible job listings through the LinkedIn interface)
+
 
 ---
 
