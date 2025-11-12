@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - RoleVision</title>
+    <meta name="description" content="RoleVision pricing plans - Free, Premium, and Pro options for AI-powered job search on LinkedIn.">
+    <link rel="stylesheet" href="policy-style.css">
+    <style>
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .pricing-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .pricing-intro h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .pricing-intro p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .plan {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            background: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .plan.premium {
+            border-color: #0a66c2;
+            background: linear-gradient(135deg, #0a66c205 0%, #0a66c210 100%);
+        }
+
+        .plan.pro {
+            border-color: #10b981;
+            background: linear-gradient(135deg, #10b98105 0%, #10b98110 100%);
+        }
+
+        .plan-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .plan-price {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .plan-billing {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 30px 0;
+            padding: 0;
+        }
+
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .coming-soon {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #fef3c7;
+            border-radius: 10px;
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        .faq-section {
+            margin-top: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <div class="pricing-container">
+            <div class="pricing-intro">
+                <h1>💰 Simple, Transparent Pricing</h1>
+                <p>Choose the plan that fits your job search needs</p>
+            </div>
+
+            <div class="plan-grid">
+                <div class="plan">
+                    <div class="plan-name">📋 Free</div>
+                    <div class="plan-price">$0</div>
+                    <div class="plan-billing">Forever free</div>
+                    <ul class="plan-features">
+                        <li>2 title scores per day</li>
+                        <li>3 deep analyses per month</li>
+                        <li>AI salary estimates</li>
+                        <li>All core features included</li>
+                        <li>Application tracking</li>
+                        <li>Smart filtering</li>
+                        <li>Block companies & keywords</li>
+                        <li>No credit card required</li>
+                    </ul>
+                    <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" class="cta-button">Get Started Free</a>
+                </div>
+
+                <div class="plan premium">
+                    <div class="plan-name">💎 Premium</div>
+                    <div class="plan-price">$11.99</div>
+                    <div class="plan-billing">per month, recurring</div>
+                    <ul class="plan-features">
+                        <li><strong>Unlimited title scores</strong></li>
+                        <li>200 deep analyses/month</li>
+                        <li>AI salary estimates</li>
+                        <li>All core features</li>
+                        <li>Email support</li>
+                        <li>Perfect for active job seekers</li>
+                    </ul>
+                    <a href="#" class="cta-button">Coming Soon</a>
+                </div>
+
+                <div class="plan pro">
+                    <div class="plan-name">⭐ Pro</div>
+                    <div class="plan-price">$19.99</div>
+                    <div class="plan-billing">per month, recurring</div>
+                    <ul class="plan-features">
+                        <li><strong>Unlimited everything</strong></li>
+                        <li>Unlimited title scores</li>
+                        <li>Unlimited deep analyses</li>
+                        <li>AI salary estimates</li>
+                        <li>All core features</li>
+                        <li>Priority support</li>
+                        <li>Early access to features</li>
+                        <li>Best for serious job hunters</li>
+                    </ul>
+                    <a href="#" class="cta-button">Coming Soon</a>
+                </div>
+            </div>
+
+            <div class="coming-soon">
+                💳 Payment links coming soon! All users currently on the Free plan (2 scores/day, 3 analyses/month) while we finalize billing.
+            </div>
+
+            <div class="faq-section">
+                <h2>Pricing FAQs</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I upgrade or downgrade my plan?</div>
+                    <div class="faq-answer">
+                        Yes, once paid plans are available, you'll be able to upgrade or downgrade at any time. Changes take effect at the start of your next billing cycle.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What payment methods do you accept?</div>
+                    <div class="faq-answer">
+                        We accept all major credit cards (Visa, Mastercard, American Express) and PayPal through our secure payment processor, Paddle.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I cancel anytime?</div>
+                    <div class="faq-answer">
+                        Yes, you can cancel your subscription at any time. You'll retain access to paid features until the end of your current billing period. No refunds for partial months.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's your refund policy?</div>
+                    <div class="faq-answer">
+                        We offer a 7-day money-back guarantee on first-time purchases. See our <a href="refund-policy.html">Refund Policy</a> for full details.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do quotas reset?</div>
+                    <div class="faq-answer">
+                        Yes. Title scores reset daily, while deep analyses reset monthly on your billing anniversary date.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I try Premium/Pro before purchasing?</div>
+                    <div class="faq-answer">
+                        The Free plan gives you a taste of all features with limited quotas. This lets you evaluate the service before committing to a paid plan.
+                    </div>
+                </div>
+
+
+                <div class="faq-item">
+                    <div class="faq-question">What happens if I exceed my quota?</div>
+                    <div class="faq-answer">
+                        On the Free plan, you'll need to wait for your daily/monthly reset or upgrade. On Premium, after 200 analyses, you'll need to upgrade to Pro or wait for the monthly reset.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

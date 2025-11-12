@@ -130,7 +130,7 @@ If you are a California resident, you have additional rights under the Californi
 If you have questions about this Privacy Policy or our privacy practices, please contact us:
 
 **Email**: RoleVisionExt@gmail.com
-**GitHub**: [https://github.com/YahiaShowgan/RoleVision-Landing](https://github.com/YahiaShowgan/RoleVision-Landing)
+**Website**: https://rolevision.app
 
 ## Third-Party Policies
 

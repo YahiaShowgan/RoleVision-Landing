@@ -29,14 +29,15 @@ RoleVision is a Chrome extension that helps you find the perfect job match on Li
 
 ## 🚀 Installation
 
-1. Download the latest release from [Releases](../../releases)
-2. Extract the ZIP file
-3. Open Chrome and go to `chrome://extensions/`
-4. Enable "Developer mode" (top right)
-5. Click "Load unpacked" and select the extracted folder
-6. Pin the extension to your toolbar for easy access
+Install RoleVision from the Chrome Web Store:
 
-For detailed instructions, see [INSTALLATION_GUIDE.md](./INSTALLATION_GUIDE.md)
+👉 [Add to Chrome](https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg)
+
+1. Click "Add to Chrome"
+2. Click "Add extension" to confirm
+3. Pin the extension to your toolbar for easy access
+4. Upload your resume in the extension settings
+5. Visit LinkedIn and start searching for jobs!
 
 ## 📋 Plans
 
@@ -66,13 +67,13 @@ Your privacy is our top priority:
 - No data is shared with third parties
 - No tracking or analytics on your job search activity
 
-Read our full [Privacy Policy](./privacy-policy.md) and [Terms of Service](./terms-of-service.md)
+Read our full [Privacy Policy](./privacy-policy.html) and [Terms of Service](./terms-of-service.html)
 
 ## 🆘 Support
 
 Need help? Have questions?
 - 📧 Email: RoleVisionExt@gmail.com
-- 💬 GitHub Issues: [Report an issue](../../issues)
+- 🌐 Website: https://rolevision.app
 
 ## 📝 License
 

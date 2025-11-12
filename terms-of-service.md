@@ -169,7 +169,7 @@ We may suspend or terminate your access if:
 
 ## 11. Data and Privacy
 
-Your privacy is important to us. Please review our [Privacy Policy](./privacy-policy.md) to understand how we collect, use, and protect your information.
+Your privacy is important to us. Please review our [Privacy Policy](./privacy-policy.html) to understand how we collect, use, and protect your information.
 
 ## 12. Indemnification
 
@@ -212,7 +212,7 @@ Nothing in these Terms creates a partnership, joint venture, or agency relations
 If you have questions about these Terms, please contact us:
 
 **Email**: RoleVisionExt@gmail.com
-**GitHub**: [https://github.com/YahiaShowgan/RoleVision-Landing](https://github.com/YahiaShowgan/RoleVision-Landing)
+**Website**: https://rolevision.app
 
 ---
 

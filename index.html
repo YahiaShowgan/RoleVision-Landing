@@ -232,28 +232,101 @@
             margin-bottom: 40px;
         }
 
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .carousel-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        .screenshot-item {
-            border-radius: 10px;
+        .carousel-main {
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+            cursor: pointer;
         }
 
-        .screenshot-item:hover {
-            transform: scale(1.02);
+        .carousel-main:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
-        .screenshot-item img {
+        .carousel-image {
             width: 100%;
             height: auto;
+            display: none;
+        }
+
+        .carousel-image.active {
             display: block;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-prev {
+            left: 20px;
+        }
+
+        .carousel-next {
+            right: 20px;
+        }
+
+        .carousel-thumbnails {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+            opacity: 0.6;
+        }
+
+        .thumbnail:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .thumbnail.active {
+            border-color: #667eea;
+            opacity: 1;
+        }
+
+        .carousel-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+            color: #666;
+            font-style: italic;
         }
 
         /* Image Modal */
@@ -265,7 +338,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             overflow: auto;
         }
 
@@ -288,12 +361,60 @@
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 10000;
+            z-index: 10001;
         }
 
         .close-modal:hover,
         .close-modal:focus {
             color: #bbb;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10001;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-prev {
+            left: 40px;
+        }
+
+        .modal-next {
+            right: 40px;
+        }
+
+        .modal-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            border-radius: 10px;
+            z-index: 10001;
+            max-width: 80%;
         }
 
         /* Features Section */
@@ -640,6 +761,49 @@
             .email-form input {
                 width: 100%;
             }
+
+            .carousel-container {
+                max-width: 100%;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .carousel-prev {
+                left: 10px;
+            }
+
+            .carousel-next {
+                right: 10px;
+            }
+
+            .thumbnail {
+                width: 70px;
+                height: 45px;
+            }
+
+            .modal-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .modal-prev {
+                left: 10px;
+            }
+
+            .modal-next {
+                right: 10px;
+            }
+
+            .modal-caption {
+                font-size: 14px;
+                padding: 10px 20px;
+                bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -720,25 +884,28 @@
         <!-- Screenshots -->
         <div class="screenshots">
             <h2>📸 See It In Action</h2>
-            <p>Real screenshots of RoleVision working on LinkedIn (click to enlarge)</p>
-            <div class="screenshot-grid">
-                <div class="screenshot-item">
-                    <img src="Screenshots/1.png" alt="RoleVision showing job scores on LinkedIn" onclick="openModal(this)">
+            <p>Real screenshots of RoleVision working on LinkedIn</p>
+            <div class="carousel-container">
+                <div class="carousel-main">
+                    <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">‹</button>
+                    <img src="Screenshots/1.png" alt="Job scores on LinkedIn" class="carousel-image active" data-index="0">
+                    <img src="Screenshots/2.png" alt="Deep AI analysis" class="carousel-image" data-index="1">
+                    <img src="Screenshots/3.png" alt="Resume manager" class="carousel-image" data-index="2">
+                    <img src="Screenshots/4.png" alt="Application tracking" class="carousel-image" data-index="3">
+                    <img src="Screenshots/5.png" alt="Smart filtering" class="carousel-image" data-index="4">
+                    <img src="Screenshots/6.png" alt="Quota dashboard" class="carousel-image" data-index="5">
+                    <img src="Screenshots/7.png" alt="Location preferences" class="carousel-image" data-index="6">
+                    <button class="carousel-nav carousel-next" onclick="changeSlide(1)">›</button>
                 </div>
-                <div class="screenshot-item">
-                    <img src="Screenshots/2.png" alt="Detailed AI analysis of job match" onclick="openModal(this)">
-                </div>
-                <div class="screenshot-item">
-                    <img src="Screenshots/3.png" alt="Resume manager interface" onclick="openModal(this)">
-                </div>
-                <div class="screenshot-item">
-                    <img src="Screenshots/4.png" alt="Application tracking dashboard" onclick="openModal(this)">
-                </div>
-                <div class="screenshot-item">
-                    <img src="Screenshots/5.png" alt="Smart filtering options" onclick="openModal(this)">
-                </div>
-                <div class="screenshot-item">
-                    <img src="Screenshots/6.png" alt="Quota and settings panel" onclick="openModal(this)">
+                <div class="carousel-caption" id="carouselCaption">Job scores displayed directly on LinkedIn listings</div>
+                <div class="carousel-thumbnails">
+                    <img src="Screenshots/1.png" alt="Thumb 1" class="thumbnail active" onclick="goToSlide(0)">
+                    <img src="Screenshots/2.png" alt="Thumb 2" class="thumbnail" onclick="goToSlide(1)">
+                    <img src="Screenshots/3.png" alt="Thumb 3" class="thumbnail" onclick="goToSlide(2)">
+                    <img src="Screenshots/4.png" alt="Thumb 4" class="thumbnail" onclick="goToSlide(3)">
+                    <img src="Screenshots/5.png" alt="Thumb 5" class="thumbnail" onclick="goToSlide(4)">
+                    <img src="Screenshots/6.png" alt="Thumb 6" class="thumbnail" onclick="goToSlide(5)">
+                    <img src="Screenshots/7.png" alt="Thumb 7" class="thumbnail" onclick="goToSlide(6)">
                 </div>
             </div>
         </div>
@@ -760,7 +927,7 @@
                     </div>
                     <div class="feature">
                         <h4>Deep Job Analysis</h4>
-                        <p>Open a job posting and click "Analyze vs Resume" for full AI breakdown: match score, aligned skills, gaps, advantages, and fit reasons.</p>
+                        <p>Open a job posting and click "Analyze vs Resume" for full AI breakdown: match score, aligned skills, gaps, advantages, and fit reasons. Location-aware: visa requirements highlighted red if you don't have one, visa sponsorship highlighted green if you need it!</p>
                     </div>
                     <div class="feature">
                         <h4>Salary Estimate</h4>
@@ -776,6 +943,10 @@
             <div class="feature-category">
                 <h3>🎨 Smart Filtering & Hiding</h3>
                 <div class="feature-grid">
+                    <div class="feature">
+                        <h4>Location & Work Type Preferences</h4>
+                        <p>Set your preferred locations and work types (Remote, Hybrid, On-site). Only interested in remote US jobs? Onsite positions get auto-hidden. Visa requirements highlighted in analysis!</p>
+                    </div>
                     <div class="feature">
                         <h4>Block Irrelevant Companies</h4>
                         <p>Hide jobs from specific companies you're not interested in. Supports partial matching. Clean up your feed instantly.</p>
@@ -977,8 +1148,10 @@
         <!-- Footer -->
         <footer>
             <div>
+                <a href="pricing.html">Pricing</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="terms-of-service.html">Terms of Service</a>
+                <a href="refund-policy.html">Refund Policy</a>
                 <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank">Chrome Web Store</a>
             </div>
             <div class="disclaimer">
@@ -992,30 +1165,137 @@
     </div>
 
     <!-- Image Modal -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close-modal">&times;</span>
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <button class="modal-nav modal-prev" onclick="changeSlideInModal(-1); event.stopPropagation();">‹</button>
         <img class="modal-content" id="modalImage">
+        <button class="modal-nav modal-next" onclick="changeSlideInModal(1); event.stopPropagation();">›</button>
+        <div class="modal-caption" id="modalCaption"></div>
     </div>
 
     <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const captions = [
+            "Job scores displayed directly on LinkedIn listings",
+            "Detailed AI analysis with skills match and gaps",
+            "Resume manager - upload and manage your resume",
+            "Track all jobs you've applied to",
+            "Smart filtering: block companies and keywords",
+            "Quota dashboard showing your usage limits",
+            "Location preferences: set work types and locations, with visa-aware analysis"
+        ];
+
+        function changeSlide(direction) {
+            const images = document.querySelectorAll('.carousel-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            images[currentSlide].classList.remove('active');
+            thumbnails[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide + direction + images.length) % images.length;
+            
+            images[currentSlide].classList.add('active');
+            thumbnails[currentSlide].classList.add('active');
+            updateCaption();
+        }
+
+        function goToSlide(index) {
+            const images = document.querySelectorAll('.carousel-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            images[currentSlide].classList.remove('active');
+            thumbnails[currentSlide].classList.remove('active');
+            
+            currentSlide = index;
+            
+            images[currentSlide].classList.add('active');
+            thumbnails[currentSlide].classList.add('active');
+            updateCaption();
+        }
+
+        function updateCaption() {
+            const caption = document.getElementById('carouselCaption');
+            caption.textContent = captions[currentSlide];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById("imageModal");
+            const isModalOpen = modal.style.display === "block";
+            
+            if (event.key === 'ArrowLeft') {
+                if (isModalOpen) {
+                    changeSlideInModal(-1);
+                } else {
+                    changeSlide(-1);
+                }
+            } else if (event.key === 'ArrowRight') {
+                if (isModalOpen) {
+                    changeSlideInModal(1);
+                } else {
+                    changeSlide(1);
+                }
+            } else if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Modal functions
         function openModal(img) {
             var modal = document.getElementById("imageModal");
             var modalImg = document.getElementById("modalImage");
+            var modalCaption = document.getElementById("modalCaption");
             modal.style.display = "block";
             modalImg.src = img.src;
             modalImg.alt = img.alt;
+            modalCaption.textContent = captions[currentSlide];
         }
 
         function closeModal() {
             document.getElementById("imageModal").style.display = "none";
         }
 
-        // Close modal on ESC key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
+        function changeSlideInModal(direction) {
+            const images = document.querySelectorAll('.carousel-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Update carousel
+            images[currentSlide].classList.remove('active');
+            thumbnails[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide + direction + images.length) % images.length;
+            
+            images[currentSlide].classList.add('active');
+            thumbnails[currentSlide].classList.add('active');
+            updateCaption();
+            
+            // Update modal
+            const modalImg = document.getElementById("modalImage");
+            const modalCaption = document.getElementById("modalCaption");
+            modalImg.src = images[currentSlide].src;
+            modalImg.alt = images[currentSlide].alt;
+            modalCaption.textContent = captions[currentSlide];
+        }
+
+        // Click carousel main image to enlarge
+        document.querySelector('.carousel-main').addEventListener('click', function(e) {
+            // Don't open modal if clicking navigation buttons
+            if (e.target.classList.contains('carousel-nav')) return;
+            
+            const activeImage = document.querySelector('.carousel-image.active');
+            openModal(activeImage);
+        });
+
+        // Close modal when clicking background
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
                 closeModal();
             }
         });
+
+        // Auto-advance carousel (optional)
+        // setInterval(() => changeSlide(1), 5000);
     </script>
 </body>
 </html>
