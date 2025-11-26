@@ -9,6 +9,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="rolevision_icon_128x128.png">
     <link rel="apple-touch-icon" sizes="128x128" href="rolevision_icon_128x128.png">
     <link rel="stylesheet" href="policy-style.css">
+
+    <!-- Paddle.js for checkout -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+
     <style>
         .pricing-container {
             max-width: 1200px;
@@ -108,20 +112,41 @@
             font-weight: 600;
             margin-top: 20px;
             transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
         }
 
-        .coming-soon {
+        .cta-button.free {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .cta-button.premium {
+            background: #0a66c2;
+        }
+
+        .cta-button.premium:hover {
+            background: #004182;
+        }
+
+        .cta-button.pro {
+            background: #10b981;
+        }
+
+        .cta-button.pro:hover {
+            background: #059669;
+        }
+
+        .pricing-note {
             text-align: center;
             margin: 30px 0;
-            padding: 20px;
-            background: #fef3c7;
-            border-radius: 10px;
-            color: #92400e;
-            font-weight: 600;
+            padding: 15px;
+            color: #666;
+            font-size: 14px;
         }
 
         .faq-section {
@@ -194,7 +219,7 @@
                         <li>Email support</li>
                         <li>Perfect for active job seekers</li>
                     </ul>
-                    <a href="#" class="cta-button">Coming Soon</a>
+                    <button class="cta-button premium" onclick="openPaddleCheckout('premium')">Subscribe to Premium</button>
                 </div>
 
                 <div class="plan pro">
@@ -211,12 +236,12 @@
                         <li>Early access to features</li>
                         <li>Best for serious job hunters</li>
                     </ul>
-                    <a href="#" class="cta-button">Coming Soon</a>
+                    <button class="cta-button pro" onclick="openPaddleCheckout('pro')">Subscribe to Pro</button>
                 </div>
             </div>
 
-            <div class="coming-soon">
-                💳 Payment links coming soon! All users currently on the Free plan (2 scores/day, 3 analyses/month) while we finalize billing.
+            <div class="pricing-note">
+                💳 Secure checkout powered by Paddle • Cancel anytime • Money-back guarantee
             </div>
 
             <div class="faq-section">
@@ -274,6 +299,71 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // ============================================================================
+        // PADDLE.JS CHECKOUT INTEGRATION
+        // ============================================================================
+
+        // Initialize Paddle with your client-side token
+        if (window.Paddle) {
+            Paddle.Initialize({
+                token: 'live_dbd003ef3db752f1b0493145365',
+                environment: 'production',
+                checkout: {
+                    settings: {
+                        displayMode: 'overlay',
+                        theme: 'light',
+                        locale: 'en'
+                    }
+                }
+            });
+            console.log('[RoleVision Pricing] Paddle.js initialized');
+        } else {
+            console.error('[RoleVision Pricing] Paddle.js not loaded');
+        }
+
+        // Open Paddle checkout for a specific plan
+        function openPaddleCheckout(plan) {
+            const priceIds = {
+                premium: 'pri_01kb0tm6b9tm8f7pa8t16cjcry',
+                pro: 'pri_01kb0tym0w5ff5hv3fyw89jnh2'
+            };
+
+            const priceId = priceIds[plan];
+            if (!priceId) {
+                console.error('[RoleVision Pricing] Invalid plan:', plan);
+                alert('Invalid plan selected. Please try again or contact support.');
+                return;
+            }
+
+            if (!window.Paddle) {
+                console.error('[RoleVision Pricing] Paddle.js not loaded');
+                alert('Payment system is loading. Please try again in a moment.');
+                return;
+            }
+
+            console.log('[RoleVision Pricing] Opening checkout for plan:', plan);
+
+            Paddle.Checkout.open({
+                items: [
+                    {
+                        priceId: priceId,
+                        quantity: 1
+                    }
+                ],
+                customData: {
+                    extension: 'rolevision',
+                    plan: plan
+                },
+                settings: {
+                    displayMode: 'overlay',
+                    theme: 'light',
+                    successUrl: window.location.origin + '/thank-you.html'
+                }
+            });
+        }
+    </script>
 </body>
 </html>
 

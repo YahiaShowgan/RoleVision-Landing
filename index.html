@@ -8,6 +8,10 @@
     <link rel="icon" type="image/png" sizes="128x128" href="rolevision_icon_128x128.png">
     <link rel="icon" type="image/png" sizes="32x32" href="rolevision_icon_128x128.png">
     <link rel="apple-touch-icon" sizes="128x128" href="rolevision_icon_128x128.png">
+
+    <!-- Paddle.js for checkout -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -680,6 +684,54 @@
             font-weight: 600;
         }
 
+        .plan-button {
+            width: 100%;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .plan-button.free {
+            background: #e0e0e0;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        .plan-button.premium {
+            background: #0a66c2;
+            color: white;
+        }
+
+        .plan-button.premium:hover {
+            background: #004182;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(10, 102, 194, 0.3);
+        }
+
+        .plan-button.pro {
+            background: #10b981;
+            color: white;
+        }
+
+        .plan-button.pro:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
         /* FAQ */
         .faq {
             background: white;
@@ -1073,6 +1125,7 @@
                         <li>Smart filtering</li>
                         <li>No credit card required</li>
                     </ul>
+                    <button class="plan-button free" disabled>Current Plan</button>
                 </div>
                 <div class="plan premium">
                     <div class="plan-name">💎 Premium</div>
@@ -1085,6 +1138,7 @@
                         <li>Email support</li>
                         <li>Perfect for active job seekers</li>
                     </ul>
+                    <button class="plan-button premium" onclick="openPaddleCheckout('premium')">Subscribe to Premium</button>
                 </div>
                 <div class="plan pro">
                     <div class="plan-name">⭐ Pro</div>
@@ -1098,10 +1152,11 @@
                         <li>Early access to features</li>
                         <li>Best for serious job hunters</li>
                     </ul>
+                    <button class="plan-button pro" onclick="openPaddleCheckout('pro')">Subscribe to Pro</button>
                 </div>
             </div>
-            <div class="coming-soon">
-                💳 Payment links coming soon! All users currently on the Free plan (2 scores/day, 3 analyses/month) while we finalize billing.
+            <div class="pricing-note">
+                💳 Secure checkout powered by Paddle • Cancel anytime • Money-back guarantee
             </div>
         </div>
 
@@ -1317,6 +1372,69 @@
 
         // Auto-advance carousel (optional)
         // setInterval(() => changeSlide(1), 5000);
+
+        // ============================================================================
+        // PADDLE.JS CHECKOUT INTEGRATION
+        // ============================================================================
+
+        // Initialize Paddle with your client-side token
+        if (window.Paddle) {
+            Paddle.Initialize({
+                token: 'live_dbd003ef3db752f1b0493145365',
+                environment: 'production',
+                checkout: {
+                    settings: {
+                        displayMode: 'overlay',
+                        theme: 'light',
+                        locale: 'en'
+                    }
+                }
+            });
+            console.log('[RoleVision] Paddle.js initialized');
+        } else {
+            console.error('[RoleVision] Paddle.js not loaded');
+        }
+
+        // Open Paddle checkout for a specific plan
+        function openPaddleCheckout(plan) {
+            const priceIds = {
+                premium: 'pri_01kb0tm6b9tm8f7pa8t16cjcry',
+                pro: 'pri_01kb0tym0w5ff5hv3fyw89jnh2'
+            };
+
+            const priceId = priceIds[plan];
+            if (!priceId) {
+                console.error('[RoleVision] Invalid plan:', plan);
+                alert('Invalid plan selected. Please try again or contact support.');
+                return;
+            }
+
+            if (!window.Paddle) {
+                console.error('[RoleVision] Paddle.js not loaded');
+                alert('Payment system is loading. Please try again in a moment.');
+                return;
+            }
+
+            console.log('[RoleVision] Opening checkout for plan:', plan);
+
+            Paddle.Checkout.open({
+                items: [
+                    {
+                        priceId: priceId,
+                        quantity: 1
+                    }
+                ],
+                customData: {
+                    extension: 'rolevision',
+                    plan: plan
+                },
+                settings: {
+                    displayMode: 'overlay',
+                    theme: 'light',
+                    successUrl: window.location.origin + '/thank-you.html'
+                }
+            });
+        }
     </script>
 </body>
 </html>
