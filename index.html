@@ -41,6 +41,16 @@
             font-size: 48px;
             font-weight: bold;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
         }
 
         .hero-headline {
@@ -742,6 +752,11 @@
                 font-size: 36px;
             }
 
+            .logo img {
+                height: 45px;
+                width: 45px;
+            }
+
             .hero-headline {
                 font-size: 32px;
             }
@@ -815,7 +830,10 @@
     <div class="container">
         <!-- Hero Section -->
         <header>
-            <div class="logo">🎯 RoleVision</div>
+            <div class="logo">
+                <img src="rolevision_icon_512x512.png" alt="RoleVision Icon">
+                <span>RoleVision</span>
+            </div>
             <h1 class="hero-headline">Stop Wasting Time on<br>Irrelevant Job Postings</h1>
             <p class="hero-subheadline">AI-powered job matching that shows you exactly which LinkedIn jobs fit your resume—before you click.</p>
             
