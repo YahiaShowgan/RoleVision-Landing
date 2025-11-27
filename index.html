@@ -19,6 +19,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 20px;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
@@ -105,6 +110,11 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
+        .cta-button:focus-visible {
+            outline: 3px solid rgba(255, 255, 255, 0.8);
+            outline-offset: 3px;
+        }
+
         .cta-button.secondary {
             background: transparent;
             border: 2px solid white;
@@ -113,6 +123,19 @@
 
         .cta-button.secondary:hover {
             background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button.secondary:focus-visible {
+            outline: 3px solid rgba(255, 255, 255, 0.9);
+            outline-offset: 3px;
+        }
+
+        .hero-cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
         }
 
         /* Problem Section */
@@ -807,33 +830,83 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header {
+                padding: 40px 15px 30px;
+            }
+
             .logo {
-                font-size: 36px;
-            }
-
-            .logo img {
-                height: 45px;
-                width: 45px;
-            }
-
-            .hero-headline {
                 font-size: 32px;
             }
 
-            .hero-subheadline {
-                font-size: 18px;
+            .logo img {
+                height: 42px;
+                width: 42px;
             }
 
-            .features, .pricing, .how-it-works, .screenshots, .faq {
-                padding: 40px 20px;
-            }
-
-            .features h2, .pricing h2, .how-it-works h2, .screenshots h2, .faq h2 {
+            .hero-headline {
                 font-size: 28px;
+                margin-bottom: 12px;
+            }
+
+            .hero-subheadline {
+                font-size: 17px;
+                margin-bottom: 25px;
+            }
+
+            .cta-button {
+                padding: 16px 35px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .hero-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .trust-badges {
+                gap: 10px;
+            }
+
+            .badge {
+                font-size: 13px;
+                padding: 6px 14px;
+            }
+
+            .problem-section, .how-it-works, .screenshots, .features, .pricing, .early-access, .faq {
+                padding: 40px 20px;
+                margin: 30px 0;
+            }
+
+            .problem-section h2, .how-it-works h2, .screenshots h2, .features h2, .pricing h2, .early-access h2, .faq h2 {
+                font-size: 28px;
+                margin-bottom: 35px;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .plan-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
 
             .email-form {
@@ -886,6 +959,64 @@
                 padding: 10px 20px;
                 bottom: 20px;
             }
+
+            footer {
+                padding: 30px 15px;
+            }
+
+            footer a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 24px;
+            }
+
+            .hero-subheadline {
+                font-size: 16px;
+            }
+
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 15px;
+            }
+
+            .badge {
+                font-size: 12px;
+                padding: 5px 12px;
+            }
+
+            .problem-section h2, .how-it-works h2, .screenshots h2, .features h2, .pricing h2, .early-access h2, .faq h2 {
+                font-size: 24px;
+            }
+
+            .problem-item .emoji {
+                font-size: 40px;
+            }
+
+            .solution-highlight h3 {
+                font-size: 24px;
+            }
+
+            .feature-category h3 {
+                font-size: 24px;
+            }
+
+            .early-access {
+                padding: 35px 20px;
+            }
+
+            footer {
+                font-size: 14px;
+            }
+
+            footer a {
+                display: inline-block;
+                margin: 8px 8px;
+            }
         }
     </style>
 </head>
@@ -907,9 +1038,9 @@
                 <div class="badge">⚡ Instant Setup</div>
             </div>
 
-            <div>
+            <div class="hero-cta-buttons">
                 <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" rel="noopener" class="cta-button">Add to Chrome - It's Free</a>
-                <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" rel="noopener" class="cta-button secondary">Get Started Free</a>
+                <a href="#pricing" class="cta-button secondary">View Pricing</a>
             </div>
         </header>
 
@@ -1123,7 +1254,7 @@
         </div> -->
 
         <!-- Pricing -->
-        <div class="pricing">
+        <div id="pricing" class="pricing">
             <h2>💰 Simple, Transparent Pricing</h2>
             <div class="plan-grid">
                 <div class="plan">
