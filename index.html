@@ -681,21 +681,33 @@
 
         .plan-button {
             width: 100%;
-            padding: 14px 28px;
+            padding: 16px 28px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
             display: block;
             margin-top: auto;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .plan-button:focus-visible {
+            outline: 3px solid rgba(102, 126, 234, 0.6);
+            outline-offset: 3px;
         }
 
         .plan-button.free {
-            background: #e0e0e0;
-            color: #666;
-            cursor: not-allowed;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .plan-button.free:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
         }
 
         .plan-button.premium {
@@ -706,7 +718,7 @@
         .plan-button.premium:hover {
             background: #004182;
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(10, 102, 194, 0.3);
+            box-shadow: 0 8px 24px rgba(10, 102, 194, 0.35);
         }
 
         .plan-button.pro {
@@ -717,7 +729,7 @@
         .plan-button.pro:hover {
             background: #059669;
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
         }
 
         .pricing-note {
