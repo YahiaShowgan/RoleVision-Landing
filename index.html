@@ -643,11 +643,12 @@
         .plan {
             border: 2px solid #e0e0e0;
             border-radius: 15px;
-            padding: 25px 20px 20px;
+            padding: 25px 28px 20px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
+            align-items: stretch;
             gap: 8px;
             height: 100%;
         }
@@ -706,19 +707,21 @@
         }
 
         .plan-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 12px 20px;
+            padding: 12px 16px;
             border: none;
             border-radius: 10px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-            display: block;
-            margin-top: 8px;
-            text-align: center;
             text-decoration: none;
+            margin: 8px 0 0 0;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
         }
 
         .plan-button:focus-visible {
@@ -913,7 +916,7 @@
             }
 
             .plan {
-                padding: 22px 20px 18px;
+                padding: 22px 24px 18px;
             }
 
             .plan-name {
@@ -933,8 +936,8 @@
             }
 
             .plan-button {
-                padding: 11px 18px;
-                font-size: 14px;
+                padding: 11px 12px;
+                font-size: 13px;
             }
 
             .email-form {
@@ -1034,7 +1037,7 @@
             }
 
             .plan {
-                padding: 20px 16px 16px;
+                padding: 20px 20px 16px;
             }
 
             .plan-name {
@@ -1054,8 +1057,8 @@
             }
 
             .plan-button {
-                padding: 10px 16px;
-                font-size: 13px;
+                padding: 10px 12px;
+                font-size: 12px;
             }
 
             .early-access {
@@ -1322,7 +1325,7 @@
                         <li>Smart filtering</li>
                         <li>No credit card required</li>
                     </ul>
-                    <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" rel="noopener" class="plan-button free">Get Started</a>
+                    <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" rel="noopener" class="plan-button free">Get Started Free</a>
                 </div>
                 <div class="plan premium">
                     <div class="plan-name">💎 Premium</div>
