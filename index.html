@@ -623,6 +623,10 @@
             padding: 40px 30px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
         }
 
         .plan:hover {
@@ -662,7 +666,8 @@
 
         .plan-features {
             list-style: none;
-            margin: 30px 0;
+            margin: 0;
+            flex-grow: 1;
         }
 
         .plan-features li {
@@ -683,7 +688,8 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 20px;
+            display: block;
+            margin-top: auto;
         }
 
         .plan-button.free {
@@ -890,7 +896,8 @@
             </div>
 
             <div>
-                <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" class="cta-button">Add to Chrome - It's Free</a>
+                <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" rel="noopener" class="cta-button">Add to Chrome - It's Free</a>
+                <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" rel="noopener" class="cta-button secondary">Get Started Free</a>
             </div>
         </header>
 
@@ -1119,7 +1126,7 @@
                         <li>Smart filtering</li>
                         <li>No credit card required</li>
                     </ul>
-                    <button class="plan-button free" disabled>Current Plan</button>
+                    <a href="https://chromewebstore.google.com/detail/rolevision/odpffbjnipbeifnikommbpflmemacfgg" target="_blank" rel="noopener" class="plan-button free">Get Started Free</a>
                 </div>
                 <div class="plan premium">
                     <div class="plan-name">💎 Premium</div>
